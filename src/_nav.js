@@ -53,7 +53,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Pages',
-    to: '/buttons',
+    to: '/page',
     icon: <CIcon icon={cilNotes} customClassName="nav-icon" />
   },
   {
@@ -65,37 +65,37 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Astra',
-    to: '/charts',
+    to: '/astra',
     icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
     name: 'Appearance',
-    to: '/charts',
+    to: '/appearance',
     icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
     name: 'Plugins',
-    to: '/widgets',
+    to: '/plugins',
     icon: <CIcon icon={cilCalculator} customClassName="nav-icon" />
   },
   {
     component: CNavItem,
     name: 'Users',
-    to: '/widgets',
+    to: '/users',
     icon: <CIcon icon={cilCalculator} customClassName="nav-icon" />
   },
   {
     component: CNavItem,
     name: 'Tools',
-    to: '/widgets',
+    to: '/tools',
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />
   },
   {
     component: CNavItem,
     name: 'Settings',
-    to: '/widgets',
+    to: '/settings',
     icon: <CIcon icon={cilStar} customClassName="nav-icon" />
   },
 ]

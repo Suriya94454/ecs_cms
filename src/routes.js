@@ -1,4 +1,6 @@
 import React from 'react'
+import Add from './views/dashboard/Add'
+
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
@@ -20,6 +22,14 @@ const Spinners = React.lazy(() => import('./views/base/spinners/Spinners'))
 const Tabs = React.lazy(() => import('./views/base/tabs/Tabs'))
 const Tables = React.lazy(() => import('./views/base/tables/Tables'))
 const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
+const page = React.lazy(() => import('./views/page/page'))
+const Charts = React.lazy(() => import('./views/charts/Charts'))
+const astra = React.lazy(() => import('./views/astra'))
+const appearance = React.lazy(() => import('./views/apperance'))
+const plugins = React.lazy(() => import('./views/plugins'))
+const users = React.lazy(() => import('./views/users'))
+const tools = React.lazy(() => import('./views/tools'))
+const settings = React.lazy(() => import('./views/settings'))
 
 // Buttons
 const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'))
@@ -35,8 +45,6 @@ const Layout = React.lazy(() => import('./views/forms/layout/Layout'))
 const Range = React.lazy(() => import('./views/forms/range/Range'))
 const Select = React.lazy(() => import('./views/forms/select/Select'))
 const Validation = React.lazy(() => import('./views/forms/validation/Validation'))
-
-const Charts = React.lazy(() => import('./views/charts/Charts'))
 
 // Icons
 const CoreUIIcons = React.lazy(() => import('./views/icons/coreui-icons/CoreUIIcons'))
@@ -97,6 +105,14 @@ const routes = [
   { path: '/notifications/modals', name: 'Modals', element: Modals },
   { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
   { path: '/widgets', name: 'Widgets', element: Widgets },
+  { path: '/page', name: 'pages', element: page },
+  { path: '/astra', name: 'Astra', element: astra },
+  { path: '/appearance', name: 'Appearance', element: appearance },
+  { path: '/plugins', name: 'Plugins', element: plugins },
+  { path: '/users', name: 'Users', element: users },
+  { path: '/tools', name: 'Tools', element: tools },
+  { path: '/settings', name: 'Settings', element: settings },
+  { path: '/add', name: 'Add', element: Add },
 ]
 
 export default routes
