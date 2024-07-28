@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
+
 import { useSelector, useDispatch } from "react-redux";
 import {
   CContainer,
@@ -14,29 +16,10 @@ import {
   CNavItem,
   useColorModes,
 } from "@coreui/react";
-import CIcon from "@coreui/icons-react";
-import {
-  cilBell,
-  cilContrast,
-  cilEnvelopeOpen,
-  cilList,
-  cilMenu,
-  cilMoon,
-  cilSun,
-} from "@coreui/icons";
-import { HiOutlineViewColumns } from "react-icons/hi2";
-
-import { AppBreadcrumb } from "./index";
 import { AppHeaderDropdown } from "./header/index";
 
 const AppHeader = ({ onSecondScreenClick }) => {
   const headerRef = useRef();
-  const { colorMode, setColorMode } = useColorModes(
-    "coreui-free-react-admin-template-theme"
-  );
-
-  const dispatch = useDispatch();
-  const sidebarShow = useSelector((state) => state.sidebarShow);
 
   useEffect(() => {
     document.addEventListener("scroll", () => {
@@ -49,68 +32,61 @@ const AppHeader = ({ onSecondScreenClick }) => {
   }, []);
 
   return (
-    <CHeader position="sticky" className="mb-4 p-0" ref={headerRef}>
-      <CContainer className="border-bottom px-4" fluid>
-        <CHeaderToggler
-          onClick={() => dispatch({ type: "set", sidebarShow: !sidebarShow })}
-          style={{ marginInlineStart: "-14px" }}
-        >
-          <CIcon icon={cilMenu} size="lg" />
-        </CHeaderToggler>
-        <CHeaderNav className="d-none d-md-flex">
-          <CNavItem>
-            <CNavLink to="/dashboard" as={NavLink}>
-              Dashboard
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink to="/add" as={NavLink}>
-              Add
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink
-              to="/secondlayout"
-              as={NavLink}
-              onClick={(e) => {
-                e.preventDefault();
-                onSecondScreenClick();
-              }}
+    <CHeader
+      position="sticky"
+      className="mb-4 p-0 "
+      ref={headerRef}
+      style={{ background: "#212631" }}
+    >
+      <div
+        className="border-bottom px-4 d-flex justify-content-start align-items-center"
+        fluid
+      >
+
+        <CDropdown variant="nav-item">
+          <CDropdownToggle
+            placement="bottom-end"
+            className="py-0 pe-0"
+            caret={false}
+          >
+            <span style={{ color: "white" }}>
+              <FaPlus />
+            </span>
+            <span style={{ color: "white" }} className="ms-2">New</span>
+          </CDropdownToggle>
+          <CDropdownMenu className="pt-0" placement="bottom-end">
+            <CDropdownItem>
+              <p className="mt-2">Post</p>
+            </CDropdownItem>
+            <CDropdownItem>
+              <p className="mt-2">Media</p>
+            </CDropdownItem>
+            <CDropdownItem 
+            to="/secondlayout"
+            as={NavLink}
+            onClick={(e)=>{
+              e.preventDefault();
+              onSecondScreenClick();
+            }}
             >
-              SecondLayout
-            </CNavLink>
-            <CNavItem>
-              <CNavLink to="/addcoulmns" as={NavLink}>
-                <HiOutlineViewColumns />
-              </CNavLink>
-            </CNavItem>
-          </CNavItem>
-          {/* <CNavItem>
-            <CNavLink href="#">Settings</CNavLink>
-          </CNavItem> */}
-        </CHeaderNav>
-        <CHeaderNav className="ms-auto">
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilBell} size="lg" />
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilList} size="lg" />
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilEnvelopeOpen} size="lg" />
-            </CNavLink>
-          </CNavItem>
-        </CHeaderNav>
+              <p className="mt-2">Page</p>
+          
+            </CDropdownItem>
+            <CDropdownItem>
+              <p className="mt-2">User</p>
+            </CDropdownItem>
+          </CDropdownMenu>
+        </CDropdown>
+        </div>
+        <div
+        className="border-bottom px-4 d-flex justify-content-end align-items-center"
+        fluid
+      >
         <CHeaderNav>
-          <li className="nav-item py-1">
+          {/* <li className="nav-item py-1">
             <div className="vr h-100 mx-2 text-body text-opacity-75"></div>
-          </li>
-          <CDropdown variant="nav-item" placement="bottom-end">
+          </li> */}
+          {/* <CDropdown variant="nav-item" placement="bottom-end">
             <CDropdownToggle caret={false}>
               {colorMode === "dark" ? (
                 <CIcon icon={cilMoon} size="lg" />
@@ -149,16 +125,10 @@ const AppHeader = ({ onSecondScreenClick }) => {
                 <CIcon className="me-2" icon={cilContrast} size="lg" /> Auto
               </CDropdownItem>
             </CDropdownMenu>
-          </CDropdown>
-          <li className="nav-item py-1">
-            <div className="vr h-100 mx-2 text-body text-opacity-75"></div>
-          </li>
+          </CDropdown> */}
           <AppHeaderDropdown />
         </CHeaderNav>
-      </CContainer>
-      <CContainer className="px-4" fluid>
-        <AppBreadcrumb />
-      </CContainer>
+      </div>
     </CHeader>
   );
 };

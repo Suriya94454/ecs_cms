@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { IoHome } from "react-icons/io5";
 import {
   CCloseButton,
   CSidebar,
@@ -11,7 +12,7 @@ import {
 import CIcon from "@coreui/icons-react";
 import { AppSidebarNav } from "../components/AppSidebarNav";
 import { sygnet } from "../assets/brand/sygnet";
-import ECSLOGO from "../assets/images/ecs_logo.png";
+import ECSLOGO from "../assets/images/Logo.png";
 import navigation from "../_nav";
 
 const AppSidebar = () => {
@@ -21,7 +22,7 @@ const AppSidebar = () => {
 
   return (
     <CSidebar
-      className="border-end"
+      className="border-end "
       colorScheme="dark"
       position="fixed"
       unfoldable={unfoldable}
@@ -33,10 +34,13 @@ const AppSidebar = () => {
       <CSidebarHeader className="border-bottom">
         <CSidebarBrand to="/">
           <div className="sidebar-brand-full">
-            <img className="img-fluid" alt="Logo" src={ECSLOGO} />
+            <img className="img-fluid w-25" alt="Logo" src={ECSLOGO} />
+            <span><IoHome size={25}/>
+            <span  className="ms-2">ECS_CMS</span>
+            </span>
           </div>
           <div className="sidebar-brand-narrow">
-            <CIcon icon={sygnet} height={32} />
+            {/* <CIcon icon={sygnet} height={32} /> */}
           </div>
         </CSidebarBrand>
         <CCloseButton

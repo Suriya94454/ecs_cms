@@ -4,7 +4,10 @@ body {
 
 .wrapper {
   width: 100%;
-  @include ltr-rtl("padding-left", var(--cui-sidebar-occupy-start, 0));
+    @include ltr-rtl("padding-left",200px); // This will set padding-left to 200px for LTR
+    // @include ltr-rtl("padding-right", 200px); // This will set padding-right to 200px for RTL
+    padding-top: 0px;
+    padding-bottom: 0px;  
   @include ltr-rtl("padding-right", var(--cui-sidebar-occupy-end, 0));
   will-change: auto;
   @include transition(padding .15s);
@@ -16,7 +19,14 @@ body {
 }
 
 .sidebar-brand-full {
-  margin-left: 3px;
+  // margin-left: 3px;
+  width: 50%;
+  display: flex;
+  gap: 10px;
+  color: rgb(145, 142, 142);
+}
+.border-end {
+  width: 14%;
 }
 
 .sidebar-header {
